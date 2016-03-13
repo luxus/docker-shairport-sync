@@ -1,5 +1,5 @@
 FROM resin/rpi-raspbian:jessie
-MAINTAINER kevineye@gmail.com
+MAINTAINER kl82@me.com
 
 RUN apt-get update \
  && apt-get install -y \
@@ -12,12 +12,20 @@ RUN apt-get update \
     libavahi-client-dev \
     libpolarssl-dev \
     libsoxr-dev \
+    git \
+    autoconf \
+    ca-certificates \
+    automake \
+    libicu52 \
+    libpsl0 \
+    libssl-dev \
+    make \
+    zlib1g-dev \
  && rm -rf /var/lib/apt/lists/*
 
 RUN cd /root \
- && git clone https://github.com/mikebrady/shairport-sync.git \
+ && git clone http://github.com/mikebrady/shairport-sync.git \
  && cd /root/shairport-sync \
- && git checkout -q tags/2.6 \
  && autoreconf -i -f \
  && ./configure --with-alsa --with-pipe --with-avahi --with-ssl=polarssl --with-soxr --with-metadata \
  && make \
