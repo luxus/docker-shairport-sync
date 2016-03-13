@@ -24,8 +24,9 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/*
 
 RUN cd /root \
- && git clone http://github.com/mikebrady/shairport-sync.git \
+ && git clone https://github.com/mikebrady/shairport-sync.git \
  && cd /root/shairport-sync \
+ && git checkout development \
  && autoreconf -i -f \
  && ./configure --with-alsa --with-pipe --with-avahi --with-ssl=polarssl --with-soxr --with-metadata \
  && make \
