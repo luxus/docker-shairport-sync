@@ -1,4 +1,4 @@
-FROM buildpack-deps
+FROM resin/rpi-raspbian:jessie
 MAINTAINER kevineye@gmail.com
 
 RUN apt-get update \
