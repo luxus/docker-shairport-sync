@@ -30,7 +30,9 @@ RUN cd /root \
  && autoreconf -i -f \
  && ./configure --with-alsa --with-pipe --with-avahi --with-ssl=polarssl --with-soxr --with-metadata \
  && make \
- && make install
+ && make install \
+ && rm /etc/avahi/avahi-daemon.conf
+COPY avahi-daemon.conf /etc/avahi/avahi-daemon.conf
 
 COPY start.sh /start
 
