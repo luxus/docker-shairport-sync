@@ -3,7 +3,7 @@
 ## Build
 
 ```
-docker build -t kevineye/shairport-sync .
+docker build -t luxus/rpi-docker-shairport-sync .
 ```
 
 ## Run
@@ -14,7 +14,7 @@ docker run -d \
     --net host \
     --device /dev/snd \
     -e AIRPLAY_NAME=Docker \
-    kevineye/shairport-sync
+    luxus/rpi-docker-shairport-sync
 ```
 
 ### Parameters
@@ -36,7 +36,7 @@ docker run -d \
     --device /dev/snd \
     -e AIRPLAY_NAME=Docker \
     -v /some/pipe:/output \
-    kevineye/shairport-sync \
+    luxus/rpi-docker-shairport-sync \
         -o pipe \
         -- /output
 ```
