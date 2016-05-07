@@ -31,8 +31,7 @@ RUN cd /root \
  && ./configure --with-alsa --with-pipe --with-avahi --with-ssl=polarssl --with-soxr --with-metadata \
  && make \
  && make install \
- && rm /etc/avahi/avahi-daemon.conf
-COPY avahi-daemon.conf /etc/avahi/avahi-daemon.conf
+ && sed -i "s/rlimit-nproc=3/#rlimit-nproc=3/" /etc/avahi/avahi-daemon.conf
 
 COPY start.sh /start
 
